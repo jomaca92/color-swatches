@@ -1,10 +1,12 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { useSelector, useDispatch } from 'react-redux'
 import { Button } from '@/components/ui/button'
+import { increment, decrement } from '@/features/counter/counterSlice'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
   return (
     <div className="flex flex-col items-center justify-center h-screen space-y-5">
@@ -17,14 +19,14 @@ function App() {
         </a>
       </div>
       <h1 className="text-2xl font-bold">Vite + React</h1>
-      <div className="flex flex-col items-center justify-center gap-5">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="flex items-center justify-center gap-5">
+        <Button onClick={() => dispatch(increment())}>Increment</Button>
+        <span>{count}</span>
+        <Button onClick={() => dispatch(decrement())}>Decrement</Button>
       </div>
+      <p>
+        Edit <code>src/App.jsx</code> and save to test HMR
+      </p>
       <p className="text-sm text-gray-500">
         Click on the Vite and React logos to learn more
       </p>
