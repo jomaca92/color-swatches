@@ -2,6 +2,12 @@
 
 Given a user input for Lightness (L) and Saturation (S), this application will return all unqiue hue names from the color api (https://www.thecolorapi.com/).
 
+## Running Locally
+
+1. Clone the repository
+2. Run `npm install` to install the dependencies
+3. Run `npm run dev` to start the development server
+
 ## Project Summary
 
 The core design decisions for this project centered around user experience and efficient API querying. For the user interface, I implemented a combination of sliders and number inputs, allowing for both intuitive control and precise value entry. During testing, I found myself wanting to explore random values, which inspired the addition of randomization buttons for each input. To optimize API interactions, I implemented debouncing between user input and API calls, preventing excessive requests during slider adjustments or value entry. The debounce delay is set at 200ms to make it nearly imperceivable. I added a loading indicator to the UI to give the user feedback while the application is loading colors. I leveraged Radix UI for the input components to make the UI more consistent and to leverage their accessibility features. Finally, I used the contrast color returned from the API to ensure the text color is always readable on the background color of each swatch.
@@ -16,9 +22,3 @@ For the API queries, I initially developed a solution that didn't assume any spe
 - Radix UI (Shadcn UI)
 - Tailwind CSS
 - Lucide Icons
-
-## Running Locally
-
-1. Clone the repository
-2. Run `npm install` to install the dependencies
-3. Run `npm run dev` to start the development server
