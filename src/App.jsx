@@ -41,7 +41,6 @@ function clamp(value, min=0, max=100) {
  * @returns {number}
  */
 function randomInt(max, min=0) {
-  console.log(max, min)
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
@@ -220,7 +219,10 @@ function useColorsDivideAndConquer(saturation, lightness) {
 function Swatch({ color }) {
   return (
     <div className="flex-1 aspect-square rounded border border-gray-200 p-1 flex flex-col justify-between" style={{ backgroundColor: color.hex.value }}>
-      <p className="text-sm xl:text-base font-medium" style={{ color: color.contrast.value }}>{color.name.value}</p>
+      <div className="flex flex-row justify-between">
+        <p className="text-sm xl:text-base font-medium" style={{ color: color.contrast.value }}>{color.name.value}</p>
+        <p className="text-sm xl:text-base font-medium" style={{ color: color.contrast.value }}>{color.hex.value}</p>
+      </div>
       <div className="flex flex-col">
         <p className="text-sm xl:text-base font-medium" style={{ color: color.contrast.value }}>R: {color.rgb.r}</p>
         <p className="text-sm xl:text-base font-medium" style={{ color: color.contrast.value }}>G: {color.rgb.g}</p>
